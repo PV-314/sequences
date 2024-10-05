@@ -1,4 +1,4 @@
-\\ \r sequences\primitive-divisors\Lehmer-t-12-prim-div-checks-with-Ab-epsilon-offset.gp
+\\ \r sequences\primitive-divisors\Lehmer-t-12-prim-div-checks.gp
 
 read("sequences\\primitive-divisors\\Lehmer-utils.gp");
 
