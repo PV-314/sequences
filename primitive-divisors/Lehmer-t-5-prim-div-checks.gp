@@ -13,7 +13,6 @@ read("sequences\\primitive-divisors\\Lehmer-utils.gp");
 \\ then we check that the pair (a,b) fits with BHV/my paper
 
 \\ entry point. Call this function. From outside, the other functions can be ignored.
-\\ 7 May 2024
 t5_check(dbg=0)={
 	my(bnd);
 	
@@ -30,7 +29,6 @@ t5_check(dbg=0)={
 \\ f is the numerator here (and the 16 in the 16*c on the RHS is the denominator here):
 \\ restart:with(numtheory):al:=(sqrt(a)+sqrt(b))/2:be:=(sqrt(a)-sqrt(b))/2:
 \\ myPhi5:=expand(y^4*cyclotomic(5,x/y));simplify(subs(x=al,y=be,myPhi5));print(numer(%),denom(%)):
-\\ 9 May 2024
 check_a_c(a,c,dbg=0)={
 	my(b);
 
@@ -50,8 +48,7 @@ check_a_c(a,c,dbg=0)={
 	);
 }
 
-\\ make alpha and beta from a and b (as in BHV)
-\\ 9 May 2024
+\\ make alpha and beta from a and b
 check_alpha_beta(a,b,dbg=0)={
 	my(al,be,phi5,tol);
 	
@@ -80,7 +77,6 @@ check_alpha_beta(a,b,dbg=0)={
 }
 
 \\ do a and b come from where I want/expect?
-\\ 7 May 2024
 check_a_b(aArg,bArg,phi5,dbg=0)={
 	my(a,b,b1a,b1b,e,isFound,k,kMin,n,nArray,p,q,sgn);
 	
@@ -192,8 +188,7 @@ check_a_b(aArg,bArg,phi5,dbg=0)={
 }
 
 \\ returns [] if not found
-\\ only looks for non-negative indices
-\\ 7 May 2024
+\\ only looks for indices \geq -2
 get_fibonacci_index(f)={
 	my(i);
 	
@@ -206,27 +201,10 @@ get_fibonacci_index(f)={
 	return([]);
 }
 
-\\ returns [] if not found
-\\ finds negative indices too
-\\ 7 May 2024
-xxx_real_get_fibonacci_index(f)={
-	for(k=0,100,
-		if(f==fibonacci(k),
-			return([k]);
-		);
-		if(f==(-1)^(k+1)*fibonacci(k),
-			return([-k]);
-		);
-	);
-	return([]);
-}
-
-\\ 9 May 2024
 output_lucas_sequence()={
 	output_sequence(2,1,1,1);
 }
 
-\\ 7 May 2024
 get_lucas(k)={
 	if(k==-2,return(3));
 	if(k==-1,return(-1));
@@ -234,8 +212,7 @@ get_lucas(k)={
 }
 
 \\ returns [] if not found
-\\ only looks for non-negative indices
-\\ 7 May 2024
+\\ only looks for indices \geq -2
 get_lucas_index(f)={
 	my(i);
 	

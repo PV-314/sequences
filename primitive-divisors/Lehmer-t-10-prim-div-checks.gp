@@ -6,7 +6,6 @@ read("sequences\\primitive-divisors\\Lehmer-utils.gp");
 \\ this, and tol=10.0^(-30), will work with bnd up to 10^8
 
 \\ entry point. Call this function. From outside, the other functions can be ignored.
-\\ 7 May 2024
 t10_check(dbg=0)={
 	my(bnd);
 	
@@ -21,7 +20,6 @@ t10_check(dbg=0)={
 
 \\ the expressions for b come from f:=a*a+10*a*b+5*b*b:solve(f=16*c,b);
 \\ c means the constant on the right-hand side. It will be \pm 1, \pm 5 here
-\\ 9 May 2024
 check_a_c(a,c,dbg=0)={
 	my(b);
 	if(issquare(5*a*a+20*c),
@@ -36,8 +34,7 @@ check_a_c(a,c,dbg=0)={
 	);
 }
 
-\\ make alpha and beta from a and b (as in BHV)
-\\ 9 May 2024
+\\ make alpha and beta from a and b
 check_alpha_beta(a,b,dbg=0)={
 	my(al,be,phi10,tol);
 	
@@ -66,7 +63,6 @@ check_alpha_beta(a,b,dbg=0)={
 }
 
 \\ do a and b come from where I want/expect?
-\\ 7 May 2024
 check_a_b(aArg,bArg,phi10,dbg=0)={
 	my(a,a1a,a1b,b,e,isFound,k,kMin,n,nArray,p,q,sgn);
 	
@@ -172,8 +168,7 @@ check_a_b(aArg,bArg,phi10,dbg=0)={
 }
 
 \\ returns [] if not found
-\\ only looks for non-negative indices
-\\ 7 May 2024
+\\ only looks for indices \geq -2
 get_fibonacci_index(f)={
 	my(i);
 	
@@ -186,27 +181,10 @@ get_fibonacci_index(f)={
 	return([]);
 }
 
-\\ returns [] if not found
-\\ finds negative indices too
-\\ 7 May 2024
-xxx_real_get_fibonacci_index(f)={
-	for(k=0,100,
-		if(f==fibonacci(k),
-			return([k]);
-		);
-		if(f==(-1)^(k+1)*fibonacci(k),
-			return([-k]);
-		);
-	);
-	return([]);
-}
-
-\\ 9 May 2024
 output_lucas_sequence()={
 	output_sequence(2,1,1,1);
 }
 
-\\ 7 May 2024
 get_lucas(k)={
 	if(k==-2,return(3));
 	if(k==-1,return(-1));
@@ -214,8 +192,7 @@ get_lucas(k)={
 }
 
 \\ returns [] if not found
-\\ only looks for non-negative indices
-\\ 7 May 2024
+\\ only looks for indices \geq -2
 get_lucas_index(f)={
 	my(i);
 	

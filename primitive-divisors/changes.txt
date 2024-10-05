@@ -1,0 +1,5 @@
+date format is yyyy-mm-dd
+
+2024-10-05
+==========
+initial commit

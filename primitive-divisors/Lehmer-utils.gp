@@ -1,4 +1,3 @@
-\\ 26 Sept 2024
 get_un(a,b,n,i)={
 	my(al,be,tol,un);
 	
@@ -22,7 +21,6 @@ get_un(a,b,n,i)={
 	return(un);
 }
 
-\\ 9 May 2024
 output_sequence(u0,u1,a1,a0,name="")={
 	for(k=0,20,
 		if(name=="",
@@ -35,7 +33,6 @@ output_sequence(u0,u1,a1,a0,name="")={
 }
 
 \\ using recurrence u_{n+1}=a1*u_{n} + a0*u_{n-1} where u_0=u0 and u_1=u1
-\\ 9 May 2024
 get_kth_element(k,u0,u1,a1,a0,name)={
 	my(fC,fP,fT);
 	
@@ -57,7 +54,6 @@ get_kth_element(k,u0,u1,a1,a0,name)={
 
 \\ returns -1000 if not found
 \\ only looks for non-negative indices
-\\ 9 May 2024
 get_index(f,u0,u1,a1,a0,name="")={
 	my(fC,fP,fT);
 	
@@ -75,33 +71,4 @@ get_index(f,u0,u1,a1,a0,name="")={
 	);
 	printf("   %4d not found in %s\n",f,name);
 	return(-1000);
-}
-
-\\ what is says on the tin, checking when al/be is a root of unity
-\\ 8 Aug 2024
-root_of_unity_check()={
-	my(a,al,b,be,v,v24);
-
-	for(p=-100,100,
-	for(q=-100,100,
-		if(gcd(p,q)==1,
-			a=p;
-			b=p-4*q;
-			\\if(a==0 || b==0 || a==b,
-			if(a==b,
-				printf("BAD(1): p=%3d, q=%3d, (a,b)=(%3d, %3d)\n",p,q,a,b);
-			);
-			\\if(a!=0 && b!=0 && a!=b,
-			if(a!=b,
-				al=sqrt(a)+sqrt(b);
-				be=sqrt(a)-sqrt(b);
-				v=al/be;
-				v24=v^24;
-				if(abs(v24-1)<0.00001,
-					printf("BAD(2): p=%3d, q=%3d, (a,b)=(%3d, %3d)\n",p,q,a,b);
-				);
-			);
-		);
-	);
-	);
 }

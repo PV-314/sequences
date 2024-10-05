@@ -2,10 +2,12 @@
 
 read("sequences\\primitive-divisors\\Lehmer-utils.gp");
 
+\\ uses Abouzaid indexing
+
 \\ use \p 50 (or higher)
 \\ this, and tol=10.0^(-30), will work with bnd up to 10^8
 
-\\ 7 May 2024
+\\ entry point. Call this function. From outside, the other functions can be ignored.
 t12_check(dbg=0)={
 	my(bnd);
 	
@@ -23,7 +25,6 @@ t12_check(dbg=0)={
 }
 
 \\ the expressions for b come from phi12:=a*a+14*a*b+b*b:solve(phi12=16*c,b);
-\\ 9 May 2024
 check_a_c(a,c,dbg=0)={
 	my(b);
 	
@@ -37,7 +38,6 @@ check_a_c(a,c,dbg=0)={
 	);
 }
 
-\\ 9 May 2024
 check_alpha_beta(a,b,dbg=0)={
 	my(al,be,phi12,tol);
 	
@@ -65,7 +65,6 @@ check_alpha_beta(a,b,dbg=0)={
 	);
 }
 
-\\ 7 May 2024
 check_a_b(a,b,phi12,dbg=0)={
 	my(p,q);
 	
@@ -80,7 +79,6 @@ check_a_b(a,b,phi12,dbg=0)={
 	);
 }
 
-\\ 29 Sept 2024
 check_Phi12(aArg,bArg,p,q,phi12,dbg=0)={
 	my(a,b,b1a,b1b,e,isFound,k,kMin,n,name,sgn);
 
@@ -151,7 +149,6 @@ check_Phi12(aArg,bArg,p,q,phi12,dbg=0)={
 	);
 }
 
-\\ 29 Sept 2024
 get_sequence_index(a,phi12)={
 	if(abs(phi12)==1,
 		return(get_zeta0_index(a));
@@ -169,7 +166,6 @@ get_sequence_index(a,phi12)={
 	return(1/0);
 }
 
-\\ 29 Sept 2024
 get_sequence_name(phi12)={
 	if(abs(phi12)==1,
 		return("  zeta0");
@@ -187,7 +183,6 @@ get_sequence_name(phi12)={
 	return(1/0);
 }
 
-\\ 29 Sept 2024
 get_sequence_value(k,phi12)={
 	if(abs(phi12)==1,
 		return(get_zeta0(k));
@@ -207,41 +202,34 @@ get_sequence_value(k,phi12)={
 
 \\ returns -1000 if not found
 \\ only looks for non-negative indices
-\\ 7 May 2024
 get_zeta0_index(f)={
 	return(get_index(f,0,1,4,-1,"zeta0"));
 }
 
-\\ 7 May 2024
 get_zeta0(k)={
 	return(get_kth_element(k,0,1,4,-1,"zeta0"));
 }
 
 \\ just for testing/checking the values of the sequence
-\\ 7 May 2024
 output_zeta0()={
 	output_sequence(0,1,4,-1);
 }
 
-\\ 7 May 2024
 get_zeta1(k)={
 	return(get_kth_element(k,1,2,4,-1,"zeta1"));
 }
 
 \\ returns -1000 if not found
 \\ only looks for non-negative indices
-\\ 7 May 2024
 get_zeta1_index(f)={
 	return(get_index(f,1,2,4,-1,"zeta1"));
 }
 
 \\ just for testing/checking the values of the sequence
-\\ 7 May 2024
 output_zeta1()={
 	output_sequence(1,2,4,-1);
 }
 
-\\ 7 May 2024
 get_zeta2P1(k)={
 	my(e);
 	e=1;
@@ -250,7 +238,6 @@ get_zeta2P1(k)={
 
 \\ returns -1000 if not found
 \\ only looks for non-negative indices
-\\ 7 May 2024
 get_zeta2P1_index(f)={
 	my(e);
 	e=1;
@@ -258,14 +245,12 @@ get_zeta2P1_index(f)={
 }
 
 \\ just for testing/checking the values of the sequence
-\\ 7 May 2024
 output_zeta2P1()={
 	my(e);
 	e=1;
 	output_sequence(e,2*e+1,4,-1);
 }
 
-\\ 7 May 2024
 get_zeta3P1(k)={
 	my(e);
 
@@ -277,7 +262,6 @@ get_zeta3P1(k)={
 
 \\ returns -1000 if not found
 \\ only looks for indices \geq -1
-\\ 7 May 2024
 get_zeta3P1_index(f)={
 	my(e);
 	
@@ -288,7 +272,6 @@ get_zeta3P1_index(f)={
 }
 
 \\ just for testing/checking the values of the sequence
-\\ 7 May 2024
 output_zeta3P1()={
 	my(e);
 	e=1;

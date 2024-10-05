@@ -13,7 +13,6 @@ read("sequences\\primitive-divisors\\Lehmer-utils.gp");
 \\ then we check that the pair (a,b) fits with BHV/my paper
 
 \\ entry point. Call this function. From outside, the other functions can be ignored.
-\\ 7 May 2024
 t8_check(dbg=0)={
 	my(bnd);
 	
@@ -30,7 +29,6 @@ t8_check(dbg=0)={
 \\ f is the numerator here (and the 8 in the 8*c on the RHS is the denominator here):
 \\ restart:with(numtheory):al:=(sqrt(a)+sqrt(b))/2:be:=(sqrt(a)-sqrt(b))/2:
 \\ myPhi8:=expand(y^4*cyclotomic(8,x/y));simplify(subs(x=al,y=be,myPhi8));print(numer(%),denom(%)):
-\\ 9 May 2024
 check_a_c(a,c,dbg=0)={
 	my(b);
 
@@ -44,8 +42,7 @@ check_a_c(a,c,dbg=0)={
 	);
 }
 
-\\ make alpha and beta from a and b (as in BHV)
-\\ 9 May 2024
+\\ make alpha and beta from a and b
 check_alpha_beta(a,b,dbg=0)={
 	my(al,be,phi8,tol);
 	
@@ -75,7 +72,6 @@ check_alpha_beta(a,b,dbg=0)={
 
 \\ determine p and q. Then find them in the sequences
 \\ do they come from where I want/expect?
-\\ 7 May 2024
 check_a_b(aArg,bArg,phi8,dbg=0)={
 	my(a,b,b1a,b1b,e,isFound,k,n,nArray,p,q,sgn);
 	a=aArg;
@@ -184,7 +180,6 @@ check_a_b(aArg,bArg,phi8,dbg=0)={
 \\ this is the sequence rho in Abouzaid's paper
 \\ returns [] if not found
 \\ only looks for non-negative indices
-\\ 7 May 2024
 get_rho_index(f)={
 	my(i);
 	
@@ -199,31 +194,26 @@ get_rho_index(f)={
 \\ this is the sequence pi in Abouzaid's paper
 \\ returns -1000 if not found
 \\ only looks for non-negative indices
-\\ 7 May 2024
 get_pi_index(f)={
 	return(get_index(f,0,1,2,1,"pi"));
 }
 
 \\ this is the sequence rho in Abouzaid's paper
-\\ 7 May 2024
 get_rho(k)={
 	return(get_kth_element(k,1,1,2,1,"rho"));
 }
 
 \\ just for testing/checking the values of the sequence
-\\ 7 May 2024
 output_rho()={
 	output_sequence(0,1,2,1);
 }
 
 \\ this is the sequence pi in Abouzaid's paper
-\\ 7 May 2024
 get_pi(k)={
 	return(get_kth_element(k,0,1,2,1,"pi"));
 }
 
 \\ just for testing/checking the values of the sequence
-\\ 7 May 2024
 output_pi()={
 	output_sequence(0,1,2,1);
 }
