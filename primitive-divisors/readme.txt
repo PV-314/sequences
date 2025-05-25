@@ -11,18 +11,30 @@ CONTENTS
  (3) Lehmer-t-10-prim-div-checks.gp
  (4) Lehmer-t-12-prim-div-checks.gp
  (5) Lehmer-utils.gp
+ (6) Lucas-t-2-prim-div-checks.gp
+ (7) Lucas-t-3-prim-div-checks.gp
+ (8) Lucas-t-4-prim-div-checks.gp
+ (9) Lucas-t-6-prim-div-checks.gp
 
-The first four files are for checking n=5,8,10,12 respectively
+The first four files are for checking Lehmer sequences for n=5,8,10,12 respectively
 (n=3,4 and 6 are not covered here, see proof in BHV)
 
 Each of these files contains a function called
 tN_check()
 where N=5,8,10 or 12 is as in the name of the file.
+Use these.
 
 These tN_check() function take an optional argument, dbg.
 If dbg is given a non-zero value, then extra debug information is given.
 
-Finally, Lehmer-utils.gp contains common code used by the other four files.
+Lehmer-utils.gp contains common code used by the above four files for Lehmer sequences.
+
+The last four files are for checking Lucas sequences for n=2,3,4,6 respectively.
+
+Each of these files also contains a function called
+tN_check()
+where N=2,3,4 or 6 is as in the name of the file.
+Use these.
 
 CONTACT
 =======
